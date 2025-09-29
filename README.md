@@ -123,6 +123,6 @@ Aqui estão alguns dos principais endpoints disponíveis:
 
 ### Reservas
 - `POST /reserva/adicionar`: Cria uma nova reserva para uma sala (requer autenticação).
-- `GET /reserva/lista`: Lista todas as salas reservadas (requer autenticação).
+- `GET /reserva/lista`: Lista todas as salas reservadas.
 - `GET /reserva/deleteById/{id}`: Cancela/deleta uma reserva (requer autenticação).
 ```
