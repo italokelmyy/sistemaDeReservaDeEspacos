@@ -1,4 +1,7 @@
 HELP.md
+guia_widgets_flutter.md
+GUIA_VPNSERVICE_ANDROID.md
+GUIA_VPN_FLUTTER.md
 target/
 .mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -35,9 +38,7 @@ build/
 ### VS Code ###
 .vscode/
 .env
-GUIA_VPN_FLUTTER.md
-GUIA_VPNSERVICE_ANDROID.md
-guia_widgets_flutter.md
-ideias_de_projeto.md
+
+
 
 
