@@ -38,6 +38,28 @@ O projeto é totalmente containerizado com Docker, facilitando a configuração 
 
 ---
 
+## 🧪 Testes
+
+O projeto possui uma cobertura de testes robusta, dividida em testes unitários e de integração, para assegurar a qualidade e o comportamento esperado da aplicação. A suíte de testes utiliza **JUnit 5**, **Mockito** para mocking de dependências e o **Spring Boot Test** para o ambiente de integração.
+
+Os testes estão organizados por funcionalidade:
+
+### Testes de Usuário (`UsuarioTest` e `UsuarioTestIntegration`)
+- **Unitários:** Validam a lógica de negócio do `UsuarioService` de forma isolada, como cadastro, login e tratamento de conflitos (usuário/e-mail duplicado), sem depender de componentes externos.
+- **Integração:** Verificam o fluxo completo de criação e autenticação de usuários, incluindo a interação com o banco de dados e o `Spring Security`.
+
+### Testes de Sala (`SalaTest` e `SalaTestIntegration`)
+- **Unitários:** Focam na lógica do `SalaService` para adicionar, remover, listar e buscar salas, utilizando mocks para o repositório.
+- **Integração:** Garantem que as operações de CRUD (Criar, Ler, Apagar) de salas funcionam corretamente em conjunto com o banco de dados.
+
+### Testes de Reserva de Sala (`SalaReservarTest` e `SalaReservaTestIntegration`)
+- **Unitários:** Testam a lógica de negócio do `SalaReservadaService`, incluindo a validação de regras como formato de horário e o intervalo mínimo de 30 minutos entre reservas.
+- **Integração:** Simulam o processo completo de reserva de uma sala, validando a interação com o banco de dados e a comunicação com o RabbitMQ para notificação de eventos.
+
+O teste `SistemaDeReservaDeEspacoApplicationTests` também garante que o contexto do Spring Boot é carregado corretamente, servindo como uma verificação primária da configuração da aplicação.
+
+---
+
 ## 🚀 Como Executar o Projeto
 
 Para executar este projeto, você precisará ter **Docker** e **Docker Compose** instalados em sua máquina.
