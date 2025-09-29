@@ -45,7 +45,7 @@ Para executar este projeto, você precisará ter **Docker** e **Docker Compose**
 ### 1. Clone o Repositório
 
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
+git clone https://github.com/italokelmyy/sistemaDeReservaDeEspacos.git
 cd sistemaDeReservaDeEspaco
 ```
 
