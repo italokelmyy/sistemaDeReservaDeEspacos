@@ -51,31 +51,38 @@ cd sistemaDeReservaDeEspaco
 
 ### 2. Crie o Arquivo de Ambiente (`.env`)
 
-Na raiz do projeto, crie um arquivo chamado `.env`. Este arquivo é essencial para configurar as credenciais e os parâmetros dos serviços (banco de dados, RabbitMQ, etc.).
-
-Copie e cole o conteúdo abaixo no seu arquivo `.env` e substitua os valores conforme necessário.
+Na raiz do projeto, crie um arquivo chamado `.env`. Copie e cole o conteúdo abaixo, substituindo os valores entre `<...>` pelas suas próprias configurações.
 
 ```env
-# Configurações do Banco de Dados MySQL
-MYSQL_DATABASE=reservas_db
-MYSQL_USER=user
-MYSQL_PASSWORD=password
-MYSQL_ROOT_PASSWORD=rootpassword
+SPRING_PROFILES_ACTIVE=docker
+# JWT
+JWT_SECRET_KEY=<coloque_aqui_sua_chave_secreta_jwt>
+JWT_EXPIRATION=600000
 
-# Configurações do RabbitMQ
+# SSL
+SERVER_SSL_KEY_STORE_PASSWORD=<sua_senha_do_keystore>
+
+
+# Banco de dados (Docker)
+SPRING_DATASOURCE_USERNAME=<seu_usuario_bd>
+SPRING_DATASOURCE_PASSWORD=<sua_senha_bd>
+
+# RabbitMQ
 SPRING_RABBITMQ_HOST=rabbitmq
 SPRING_RABBITMQ_PORT=5672
 SPRING_RABBITMQ_USERNAME=guest
 SPRING_RABBITMQ_PASSWORD=guest
 
-# Configurações do Servidor SSL
-# Senha para o keystore (keystore.p12)
-SERVER_SSL_KEY_STORE_PASSWORD=sua-senha-aqui
+# MYSQL Container
 
-# Segredo para a geração de tokens JWT
-JWT_SECRET=seu-segredo-super-secreto-para-jwt-aqui
+MYSQL_DATABASE=sistemareservasdeespacos
+MYSQL_USER=<seu_usuario_bd>
+MYSQL_PASSWORD=<sua_senha_bd>
+SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/sistemareservasdeespacos?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+MYSQL_ROOT_PASSWORD=<sua_senha_root_do_mysql>
 ```
 **Atenção:** O arquivo `keystore.p12` deve estar presente na pasta `src/main/resources`.
+
 
 ### 3. Suba os Contêineres com Docker Compose
 
